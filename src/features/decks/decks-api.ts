@@ -12,9 +12,13 @@ export const decksAPI = {
     fetchDecks() {
         return instance.get<FetchResponseType>('/v2/decks')
     },
-    addDeck(name:string) {
-        return instance.post<DeckType>('/v1/decks',{name:name})
+    addDeck(params:AddDeckParams) {
+        return instance.post<DeckType>('/v1/decks',params)
     }
+}
+
+export type AddDeckParams={
+    name:string
 }
 
 export type ErrorResponseType = {
