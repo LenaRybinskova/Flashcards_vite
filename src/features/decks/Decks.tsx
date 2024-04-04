@@ -6,12 +6,6 @@ import {setDecksAC} from './decks-reducer';
 import {AppDispatch, useAppDispatch} from '../../app/store';
 
 export const Decks = () => {
-    console.log("Decks")
-
-    const dispatch = useAppDispatch()
-    useEffect(()=>{
-        decksAPI.fetchDecks().then(res => dispatch(setDecksAC(res.data.items)))
-    },[])
 
   return (
     <div>
