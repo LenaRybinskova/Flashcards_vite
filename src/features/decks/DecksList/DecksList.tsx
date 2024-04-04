@@ -5,14 +5,15 @@ import {DeckItem} from './DeckItem/DeckItem';
 import {useEffect} from 'react';
 import {setDecksAC} from '../decks-reducer';
 import {selectDecks} from '../decks-selectors';
+import {fetchDecksTC} from '../decks-thunks';
 
 export const DecksList = () => {
     const dispatch = useAppDispatch()
     const decks = useAppSelector<DeckType[]>(selectDecks)
 
-    useEffect(()=>{
-        decksAPI.fetchDecks().then(res => dispatch(setDecksAC(res.data.items)))
-    },[])
+    useEffect(() => {
+        dispatch(fetchDecksTC())
+    }, [])
 
     return (
         <ul className={s.list}>
